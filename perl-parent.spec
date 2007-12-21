@@ -10,6 +10,7 @@ Group:      Development/Perl
 Summary:    Establish an ISA relationship with base classes at compile time
 Source:     http://www.cpan.org/modules/by-module//%{realname}-%{version}.tar.gz
 Url:        http://search.cpan.org/dist/%{realname}
+BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: perl(Test::More)
 BuildArch: noarch
 
