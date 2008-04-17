@@ -1,18 +1,18 @@
-%define realname   parent
+%define module   parent
 %define version    0.221
 %define release    %mkrel 1
 
-Name:       perl-%{realname}
+Name:       perl-%{module}
 Version:    %{version}
 Release:    %{release}
 License:    GPL or Artistic
 Group:      Development/Perl
 Summary:    Establish an ISA relationship with base classes at compile time
-Source:     http://www.cpan.org/modules/by-module//%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Url:        http://search.cpan.org/dist/%{module}
+Source:     http://search.cpan.org/CPAN/authors/id/C/CO/CORION/%{module}-%{version}.tar.gz
 BuildRequires: perl(Test::More)
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 Allows you to both load one or more modules, while setting up inheritance from
@@ -30,7 +30,7 @@ If you want to have a subclass and its parent class in the same file, you
 can tell C<parent> not to load any modules by using the C<-norequire> switch:
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{module}-%{version} 
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -40,15 +40,14 @@ can tell C<parent> not to load any modules by using the C<-norequire> switch:
 make test
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc Changes META.yml
+%doc Changes
 %{_mandir}/man3/*
-%perl_vendorlib/*
-
+%perl_vendorlib/parent.pm
