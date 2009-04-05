@@ -14,6 +14,8 @@ BuildRequires: perl(Test::More)
 BuildArch: noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}
 
+Provides: perl(parent)
+
 %description
 Allows you to both load one or more modules, while setting up inheritance from
 those modules at the same time.  Mostly similar in effect to
