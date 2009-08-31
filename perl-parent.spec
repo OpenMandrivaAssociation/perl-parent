@@ -1,18 +1,20 @@
-%define module   parent
-%define version    0.221
-%define release    %mkrel 3
+%define upstream_name    parent
+%define upstream_version 0.222
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:    Establish an ISA relationship with base classes at compile time
-Url:        http://search.cpan.org/dist/%{module}
-Source:     http://search.cpan.org/CPAN/authors/id/C/CO/CORION/%{module}-%{version}.tar.gz
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://search.cpan.org/CPAN/authors/id/C/CO/CORION/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(Test::More)
+
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 Provides: perl(parent)
 
@@ -32,7 +34,7 @@ If you want to have a subclass and its parent class in the same file, you
 can tell C<parent> not to load any modules by using the C<-norequire> switch:
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
