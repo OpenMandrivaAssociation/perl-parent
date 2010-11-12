@@ -1,5 +1,5 @@
 %define upstream_name    parent
-%define upstream_version 0.223
+%define upstream_version 0.224
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
