@@ -1,9 +1,9 @@
 %define upstream_name    parent
-%define upstream_version 0.224
+%define upstream_version 0.225
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 Summary:    Establish an ISA relationship with base classes at compile time
 License:    GPL+ or Artistic
