@@ -1,5 +1,5 @@
 %define modname	parent
-%define modver 0.227
+%define modver 0.228
 
 Summary:	Establish an ISA relationship with base classes at compile time
 Name:		perl-%{modname}
@@ -8,7 +8,7 @@ Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/authors/id/C/CO/CORION/parent-%{modver}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/C/CO/CORION/parent-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Test::More)
 BuildRequires:	perl-devel
@@ -46,5 +46,6 @@ make test
 %doc Changes
 %{perl_vendorlib}/parent.pm
 %{_mandir}/man3/*
+
 
 
