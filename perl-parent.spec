@@ -1,14 +1,14 @@
 %define modname	parent
-%define modver 0.228
+%define modver 0.232
 
 Summary:	Establish an ISA relationship with base classes at compile time
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	5
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
-Source0:	http://search.cpan.org/CPAN/authors/id/C/CO/CORION/parent-%{modver}.tar.gz
+Source0:	http://search.cpan.org/CPAN/authors/id/C/CO/CORION/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl(Test::More)
 BuildRequires:	perl-devel
@@ -33,7 +33,7 @@ can tell C<parent> not to load any modules by using the C<-norequire> switch:
 %setup -qn %{modname}-%{modver}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
@@ -46,6 +46,3 @@ make test
 %doc Changes
 %{perl_vendorlib}/parent.pm
 %{_mandir}/man3/*
-
-
-
